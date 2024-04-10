@@ -1,6 +1,8 @@
 
 # Apuntes REDUX
 
+## Introducción y definiciones
+
 ### ¿Qué es REDUX?
 
 Redux es un patrón de manejo de la información con el que se puede saber con un historico quien ha cambiado cierta variable, cuando y que valor tenía.
@@ -37,3 +39,30 @@ Una acción tiene únicamente dos propiedades:
 ### Reducer
 
 Es una función que únicamente recibe dos argumentos y siempre retorna un estado
+
+Los argumentos que recibe un reducer son:
+
+* oldState:
+  * El estado actual de la aplicación, tal y como se encuentra en este momento
+* action:
+  * Es un objeto plano que indica qué hay que hacer
+
+### State
+
+Hay varias reglar que se tiene para usar un state:
+
+* El state es de sólo lectura
+* Nunca se mutará el state de forma directa
+* Hay funciones que estan prohibidas de JS:
+  * push
+  * cualquier funcion que modifica un objeto
+  * manipulación directa del objeto oldState
+
+### Store
+
+El store es un objeto que tiene las siguientes responsabilidades:
+
+* Contiene el estado de la aplicación
+* Permite la lectura del estado via: `getState()`
+* Permite crear un nuevo estado utilizando: `dispatch(ACTION)`
+* Permite notificar los cambios via: `subcribe()`
