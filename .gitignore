@@ -3,3 +3,6 @@
 
 #package-lock
 *package-lock
+
+# node modules
+*/node_modules/*
