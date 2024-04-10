@@ -1,4 +1,5 @@
 #editor
+*/.vscode/*
 .vscode/*
 
 #package-lock
@@ -6,3 +7,6 @@
 
 # node modules
 */node_modules/*
+
+# angular files
+*/.angular/*
