@@ -1,5 +1,5 @@
 <ul class="todo-list">
-  @for (todo of todos; track todos) {
+  @for (todo of todos | filterTodo:actualFilter; track todos) {
     <app-todo-item [todo]="todo"/>
   }
 </ul>

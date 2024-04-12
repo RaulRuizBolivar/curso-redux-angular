@@ -1,0 +1,1 @@
+export type validFilter = 'all' | 'completed' | 'pending'

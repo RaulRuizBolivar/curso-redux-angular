@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 import { FormControl, Validators } from '@angular/forms';
 import { Store } from '@ngrx/store';
-import * as Actions from '../todo.actions';
+import * as actions from '../todo.actions';
 import { AppState } from '../../app.reducer';
 
 @Component({
@@ -18,7 +18,7 @@ export class TodoAddComponent {
 
   addTodo(){
     if(this.txtInput.invalid) return;
-    this.store.dispatch(Actions.create({
+    this.store.dispatch(actions.create({
       text : this.txtInput.value
     }));
     this.txtInput.reset();

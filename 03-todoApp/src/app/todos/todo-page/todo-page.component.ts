@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { Store } from '@ngrx/store';
-import * as Actions from '../todo.actions';
+import * as actions from '../todo.actions';
 import { AppState } from '../../app.reducer';
 
 @Component({
@@ -17,6 +17,6 @@ export class TodoPageComponent {
 
   toggleAll(){
     this.allSelected = !this.allSelected;
-    this.store.dispatch(Actions.toggleAll({allSelected: this.allSelected}))
+    this.store.dispatch(actions.toggleAll({allSelected: this.allSelected}))
   }
 }
