@@ -19,3 +19,8 @@ export const remove = createAction(
     '[TODO] Remove Todo',
     props<{id: string}>()
 )
+
+export const toggleAll = createAction(
+    '[TODO] Remove Todo',
+    props<{allSelected: boolean}>()
+)
