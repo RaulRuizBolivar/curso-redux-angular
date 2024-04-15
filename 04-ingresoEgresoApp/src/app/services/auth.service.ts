@@ -2,19 +2,25 @@ import { Injectable } from '@angular/core';
 import { Auth, createUserWithEmailAndPassword, signInWithEmailAndPassword } from '@angular/fire/auth';
 import { Usuario } from '../models/usuario.model';
 import { Firestore, collection, doc, setDoc } from '@angular/fire/firestore';
+import { Store } from '@ngrx/store';
+import { AppState } from '../app.reducer';
+import * as authActions from '../auth/auth.actions';
 
 @Injectable({
   providedIn: 'root'
 })
 export class AuthService {
 
-  constructor(private auth: Auth, public fireStore : Firestore) { }
+  constructor(
+    private auth: Auth,
+    public fireStore : Firestore,
+    public store: Store<AppState>
+  ) { }
 
   initAuthListener(){
-    this.auth.onAuthStateChanged(user => {
-      console.log(user);
-      console.log(user?.uid);
-      console.log(user?.email);
+    this.auth.onAuthStateChanged(firebaseUser => {
+      if(!firebaseUser) return
+      // this.store.dispatch(authActions.setUser({}))
     })
   }
 
