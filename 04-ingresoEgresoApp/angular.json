@@ -3,7 +3,7 @@
   "version": 1,
   "newProjectRoot": "projects",
   "projects": {
-    "ingresoEgresoApp": {
+    "ingreso-egreso-app": {
       "projectType": "application",
       "schematics": {
         "@schematics/angular:component": {
@@ -71,10 +71,10 @@
           "builder": "@angular-devkit/build-angular:dev-server",
           "configurations": {
             "production": {
-              "buildTarget": "ingresoEgresoApp:build:production"
+              "buildTarget": "ingreso-egreso-app:build:production"
             },
             "development": {
-              "buildTarget": "ingresoEgresoApp:build:development"
+              "buildTarget": "ingreso-egreso-app:build:development"
             }
           },
           "defaultConfiguration": "development"
@@ -82,7 +82,7 @@
         "extract-i18n": {
           "builder": "@angular-devkit/build-angular:extract-i18n",
           "options": {
-            "buildTarget": "ingresoEgresoApp:build"
+            "buildTarget": "ingreso-egreso-app:build"
           }
         },
         "test": {
@@ -102,6 +102,23 @@
             ],
             "scripts": []
           }
+        },
+        "deploy": {
+          "builder": "@angular/fire:deploy",
+          "options": {
+            "version": 2
+          },
+          "configurations": {
+            "production": {
+              "buildTarget": "ingreso-egreso-app:build:production",
+              "serveTarget": "ingreso-egreso-app:serve:production"
+            },
+            "development": {
+              "buildTarget": "ingreso-egreso-app:build:development",
+              "serveTarget": "ingreso-egreso-app:serve:development"
+            }
+          },
+          "defaultConfiguration": "production"
         }
       }
     }

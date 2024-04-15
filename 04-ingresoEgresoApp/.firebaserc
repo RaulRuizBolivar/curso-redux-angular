@@ -1,0 +1,14 @@
+{
+  "targets": {
+    "ingreso-egreso-app-curso-redux": {
+      "hosting": {
+        "ingreso-egreso-app": [
+          "ingreso-egreso-app-curso-redux"
+        ]
+      }
+    }
+  },
+  "projects": {
+    "default": "ingreso-egreso-app-curso-redux"
+  }
+}
