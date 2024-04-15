@@ -10,12 +10,11 @@ import { AuthService } from './services/auth.service';
 })
 export class AppComponent {
   firestore: Firestore = inject(Firestore);
-  items$: Observable<any[]>;
+  // items$: Observable<any[]>;
 
   constructor(private authService: AuthService){
-    const aCollection = collection(this.firestore, 'items')
-    this.items$ = collectionData(aCollection);
-
+    // const aCollection = collection(this.firestore, 'items')
+    // this.items$ = collectionData(aCollection);
     this.authService.initAuthListener()
   }
 
