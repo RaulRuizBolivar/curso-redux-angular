@@ -8,6 +8,14 @@ export class AuthService {
 
   constructor(private auth: Auth) { }
 
+  initAuthListener(){
+    this.auth.onAuthStateChanged(user => {
+      console.log(user);
+      console.log(user?.uid);
+      console.log(user?.email);
+    })
+  }
+
   crearUsuario(correo:string,password: string){
     return createUserWithEmailAndPassword(this.auth, correo, password);
   }
@@ -18,5 +26,9 @@ export class AuthService {
 
   logout(){
     return this.auth.signOut();
+  }
+
+  isAuth(): boolean{
+    return Boolean(this.auth.currentUser);
   }
 }

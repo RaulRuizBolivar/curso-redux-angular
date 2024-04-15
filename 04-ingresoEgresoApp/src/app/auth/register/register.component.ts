@@ -37,7 +37,6 @@ export class RegisterComponent implements OnInit {
     const { correo , password } = this.registroForm.value;
     this.authService.crearUsuario(correo,password)
       .then(response => {
-        console.log(response);
         this.dialogService.cerrarLoading()
         this.router.navigate(['/']);
       })

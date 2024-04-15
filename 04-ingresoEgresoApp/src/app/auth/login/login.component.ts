@@ -34,10 +34,8 @@ export class LoginComponent implements OnInit{
     this.dialogService.abrirLoading()
     
     const {correo , password} = this.loginForm.value;
-    console.log(this.loginForm.value);
     this.authService.loginUsuario(correo,password)
     .then(response => {
-      console.log(response);
       this.dialogService.cerrarLoading();
       this.router.navigate(['/']);
     })
