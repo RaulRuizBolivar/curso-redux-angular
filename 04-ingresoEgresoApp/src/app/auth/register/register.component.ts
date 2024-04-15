@@ -2,7 +2,6 @@ import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { AuthService } from '../../services/auth.service';
 import { Router } from '@angular/router';
-import Swal from 'sweetalert2';
 import { DialogService } from '../../services/dialog.service';
 
 @Component({
@@ -34,8 +33,8 @@ export class RegisterComponent implements OnInit {
 
     this.dialogService.abrirLoading()
 
-    const { correo , password } = this.registroForm.value;
-    this.authService.crearUsuario(correo,password)
+    const { correo , password, nombre } = this.registroForm.value;
+    this.authService.crearUsuario(correo,password,nombre)
       .then(response => {
         this.dialogService.cerrarLoading()
         this.router.navigate(['/']);
