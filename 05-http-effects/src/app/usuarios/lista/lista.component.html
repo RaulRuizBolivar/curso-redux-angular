@@ -1,0 +1,22 @@
+<div class="card-columns">
+
+    @for (user of usuarios; track $index) {
+
+        <div class="card">
+            <img [src]="user.avatar" class="card-img-top">
+            <div class="card-body">
+            <h5 class="card-title">{{user.first_name}} {{user.last_name}}</h5>
+            <p class="card-text">
+                {{user.email}}
+            </p>
+            <p class="card-text">
+                <span class="text-muted">
+                    Id: {{user.id}}
+                </span>
+            </p>
+            </div>
+        </div>
+
+    }
+
+  </div>
