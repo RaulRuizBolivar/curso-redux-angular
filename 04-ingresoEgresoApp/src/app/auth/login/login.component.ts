@@ -50,7 +50,7 @@ export class LoginComponent implements OnInit , OnDestroy{
       this.router.navigate(['/']);
     })
     .catch(error => {
-      console.log(error);
+      console.error(error);
       this.store.dispatch(ui.stopLoading())
       this.dialogService.error(error)
     })

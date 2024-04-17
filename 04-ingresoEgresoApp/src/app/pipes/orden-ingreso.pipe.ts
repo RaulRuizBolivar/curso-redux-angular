@@ -12,7 +12,6 @@ export class OrdenIngresoPipe implements PipeTransform {
       if(a.tipo === 'egreso') return 1;
       return -1
     });
-    console.log(sortedList)
     return sortedList
   }
 

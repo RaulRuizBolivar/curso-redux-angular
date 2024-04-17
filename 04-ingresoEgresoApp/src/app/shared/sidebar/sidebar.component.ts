@@ -24,7 +24,6 @@ export class SidebarComponent implements OnInit {
 
   ngOnInit(): void {
     this.store.select('auth').pipe(filter(({user})=> user != null)).subscribe(({user})=>{
-      console.log(user)
       this.nombreUsuario = user?.nombre
     })
   }

@@ -64,25 +64,4 @@ export class EstadisticaComponent implements OnInit {
     this.chartData.datasets[0].data = [this.totalIngresos,this.totalEgresos]
   }
 
-   // events
-   public chartClicked({
-    event,
-    active,
-  }: {
-    event: ChartEvent;
-    active: object[];
-  }): void {
-    console.log(event, active);
-  }
-
-  public chartHovered({
-    event,
-    active,
-  }: {
-    event: ChartEvent;
-    active: object[];
-  }): void {
-    console.log(event, active);
-  }
-
 }

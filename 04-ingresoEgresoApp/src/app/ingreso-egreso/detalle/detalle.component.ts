@@ -25,7 +25,6 @@ export class DetalleComponent implements OnInit, OnDestroy {
   }
 
   borrar(uid:string | null){
-    console.log(uid)
     if(!uid) return
     this.ingresoEgresoService.borrarIngresoEgreso(uid)
       .then((uid) => {
