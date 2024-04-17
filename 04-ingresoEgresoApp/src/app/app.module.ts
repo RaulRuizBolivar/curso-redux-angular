@@ -28,6 +28,10 @@ import { StoreModule } from '@ngrx/store';
 import { appReducers } from './app.reducer';
 import { StoreDevtoolsModule } from '@ngrx/store-devtools';
 import { environment } from '../environments/environment';
+import { OrdenIngresoPipe } from './pipes/orden-ingreso.pipe';
+
+// Chartjs
+import { BaseChartDirective, provideCharts, withDefaultRegisterables } from 'ng2-charts';
 
 
 @NgModule({
@@ -41,7 +45,8 @@ import { environment } from '../environments/environment';
     DetalleComponent,
     FooterComponent,
     NavbarComponent,
-    SidebarComponent
+    SidebarComponent,
+    OrdenIngresoPipe,
   ],
   imports: [
     BrowserModule,
@@ -51,11 +56,13 @@ import { environment } from '../environments/environment';
     StoreDevtoolsModule.instrument({ maxAge: 25, logOnly: !isDevMode() }),
     provideFirebaseApp(() => initializeApp(environment.firebase)),
     provideAuth(() => getAuth()),
-    provideFirestore(() => getFirestore())
+    provideFirestore(() => getFirestore()),
+    BaseChartDirective,
   ],
   providers: [
     ScreenTrackingService,
-    UserTrackingService
+    UserTrackingService,
+    provideCharts(withDefaultRegisterables()),
   ],
   bootstrap: [AppComponent]
 })

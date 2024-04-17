@@ -6,7 +6,8 @@ import { DialogService } from '../../services/dialog.service';
 import { Store } from '@ngrx/store';
 import { AppState } from '../../app.reducer';
 import * as ui from '../../shared/ui.actions';
-import { Subscription } from 'rxjs';
+import { Subscription, take } from 'rxjs';
+import * as auth from '../auth.actions';
 
 @Component({
   selector: 'app-login',
@@ -35,13 +36,13 @@ export class LoginComponent implements OnInit , OnDestroy{
 
   ngOnInit(): void {
     this.uiSubscription = this.store.select('ui')
-                            .subscribe(ui=> this.cargando = ui.isLoading)
+                            .subscribe(ui=> this.cargando = ui.isLoading);
   }
 
   loginUsuario(){
 
     this.store.dispatch(ui.isLoading())
-    
+
     const {correo , password} = this.loginForm.value;
     this.authService.loginUsuario(correo,password)
     .then(() => {

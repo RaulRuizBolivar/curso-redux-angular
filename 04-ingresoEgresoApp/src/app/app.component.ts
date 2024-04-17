@@ -1,4 +1,4 @@
-import { Component, inject } from '@angular/core';
+import { Component, OnDestroy, inject } from '@angular/core';
 import { Firestore, collection, collectionData } from '@angular/fire/firestore';
 import { Observable } from 'rxjs';
 import { AuthService } from './services/auth.service';
@@ -8,7 +8,7 @@ import { AuthService } from './services/auth.service';
   templateUrl: './app.component.html',
   styleUrl: './app.component.css'
 })
-export class AppComponent {
+export class AppComponent{
   firestore: Firestore = inject(Firestore);
   // items$: Observable<any[]>;
 
@@ -17,6 +17,5 @@ export class AppComponent {
     // this.items$ = collectionData(aCollection);
     this.authService.initAuthListener()
   }
-
 
 }
