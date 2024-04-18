@@ -12,9 +12,17 @@ export class UsuarioService {
 
   constructor(private http: HttpClient) { }
 
-  getUser() {
-    return this.http.get<ApiResponse>(`${this.url}/users?per_page=12`).pipe(
-      map((response:ApiResponse)  => response.data)
+  getUsers() {
+    return this.http.get<ApiResponse>(`${this.url}/users?per_page=6&delay=${Math.random()}`).pipe(
+      map((response: ApiResponse)  => response.data)
     );
   }
+
+
+  getUserById(id:string) {
+    return this.http.get<ApiResponse>(`${this.url}/users/${id}`).pipe(
+      map((response: ApiResponse)  => response.data)
+    );
+  }
+
 }
